@@ -54,7 +54,7 @@ def test_mask_word_mix_letter():
     assert ret == "ele-----"
 
 def test_create_status_not_guessed():
-    secret_word = "hospital"
+    secret_word = "elephant"
     guesses = []
     remaining_turns = 8
     status = hangman.create_status(secret_word, guesses, remaining_turns)
@@ -72,3 +72,14 @@ def test_create_status_normal():
     Guesses: a x h
     Remaining turns : 7
     """
+
+def test_play_correct_guess():
+    secret_word = "hospital"
+    guesses = []
+    remaining_turns = 8
+    guess = "a"
+    remaining_turns, repeat, finished = hangman.play_round(secret_word, guesses, guess, remaining_turns)
+    assert guesses == ["a"]
+    assert remaining_turns == 8
+    assert repeat == False
+    assert finished == False
