@@ -53,3 +53,9 @@ def test_mask_word_mix_letter():
     ret =hangman.mask_word(secret_word,guesses)
     assert ret == "ele-----"
 
+def test_create_status_no_guesses():
+    secret_word = "elephant"
+    guesses = []
+    remaining_turns = 8
+    ret = hangman.create_status(secret_word, guesses, remaining_turns)
+    assert ret == """Word:--------Guesses: Remaining turns : 8"""
