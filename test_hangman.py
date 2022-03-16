@@ -62,3 +62,13 @@ def test_create_status_not_guessed():
     Guesses: 
     Remaining turns : 8
     """
+
+def test_create_status_normal():
+    secret_word = "elephant"
+    guesses = ["a", "x", "h"]
+    remaining_turns = 7
+    ret = hangman.create_status(secret_word, guesses, remaining_turns) 
+    assert ret == """Word: ----ha--
+    Guesses: a x h
+    Remaining turns : 7
+    """
